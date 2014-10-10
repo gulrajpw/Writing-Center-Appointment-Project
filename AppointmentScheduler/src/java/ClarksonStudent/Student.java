@@ -16,11 +16,14 @@ public class Student {
     
     private String StudentName;
     private String StudentEmail;
-    private int StudentNumber;
+    private String StudentNumber;
     private String professorName;
     private List<String> ApptInfo;
     private String courseName; //CS350
     
+    public Student() {};
+    public Student(String studentName, String email, String number, String profName, String courseName) {}; // default constructor
+            
     
     public String getStudentName()
     {        return StudentName;
@@ -33,7 +36,7 @@ public class Student {
     
     }
     
-    public int getStudentNumber()
+    public String getStudentNumber()
     {
      return StudentNumber;   
     }
