@@ -14,49 +14,91 @@ import java.util.List;
 
 public class Student {
     
-    private String StudentName;
-    private String StudentEmail;
-    private String StudentNumber;
-    private String professorName;
-    private List<String> ApptInfo;
-    private String courseName; //CS350
+    private static String StudentName;
+    private static String StudentEmail;
+    private static int StudentNumber;
+    private static String professorName;
+    private static List<String> ApptInfo;
+    private static String courseName; //CS350
     
     public Student() {};
-    public Student(String studentName, String email, String number, String profName, String courseName) {}; // default constructor
+    public Student(String studentName, String email, int number, String profName, String courseName) {}; // default constructor
             
     
-    public String getStudentName()
+    public static String getStudentName()
     {        return StudentName;
    
     }
     
-    public String getStudentEmail()
+    public static String getStudentEmail()
     {
     return StudentEmail;    
     
     }
     
-    public String getStudentNumber()
+    public static int getStudentNumber()
     {
      return StudentNumber;   
     }
     
-    public String getProfessorName()
+    public static String getProfessorName()
     {
      return professorName;   
     }
     
-    public List<String> getApptInfo() // This list contains something like a paragraph description that the student adds
+    public static List<String> getApptInfo() // This list contains something like a paragraph description that the student adds
                                         //Example: I need help with this because I'm a failure.
     {
         
     return ApptInfo;
     }
     
-    public String getCourseName()
+    public static String getCourseName()
     {
     return courseName;    
     
+    }
+
+    /**
+     * @param StudentName the StudentName to set
+     */
+    public void setStudentName(String StudentName) {
+        this.StudentName = StudentName;
+    }
+
+    /**
+     * @param StudentEmail the StudentEmail to set
+     */
+    public void setStudentEmail(String StudentEmail) {
+        this.StudentEmail = StudentEmail;
+    }
+
+    /**
+     * @param StudentNumber the StudentNumber to set
+     */
+    public void setStudentNumber(int StudentNumber) {
+        this.StudentNumber = StudentNumber;
+    }
+
+    /**
+     * @param professorName the professorName to set
+     */
+    public void setProfessorName(String professorName) {
+        this.professorName = professorName;
+    }
+
+    /**
+     * @param ApptInfo the ApptInfo to set
+     */
+    public void setApptInfo(List<String> ApptInfo) {
+        this.ApptInfo = ApptInfo;
+    }
+
+    /**
+     * @param courseName the courseName to set
+     */
+    public void setCourseName(String courseName) {
+        this.courseName = courseName;
     }
     
 }

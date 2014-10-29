@@ -20,15 +20,15 @@ public class Appt_Manager {
         
     }
     
-    public boolean return_stud(Student Stud){
+//    public boolean return_stud(Student Stud){
         /* Check to see if the user is a recurring student */
-        Student S;
+//        Student S;
         /* S = Get a Student info from Database */
-        while ( /* !EOF */ ) {
-            if (Stud.comp_info(S))
-                return true;
+//        while ( /* !EOF */ ) {
+//            if (Stud.comp_info(S))
+//                return true;
             /* S = Next Student in Database */ 
-        }
-        return false; 
-    }
+//        }
+//        return false; 
+//    }
 }

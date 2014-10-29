@@ -18,7 +18,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Student Info</title>
     </head>
-    <body>
+    
         <h1>Student </h1>
         
         <%
@@ -27,21 +27,23 @@
             
             String StudentName = request.getParameter("StudentName");
             String email = request.getParameter("StudentEmail");
-            String StudentNumber = request.getParameter("StudentNumber");
+            int StudentNumber = Integer.parseInt(request.getParameter("StudentNumber"));
             String professorName = request.getParameter("professorName");
             String courseName = request.getParameter("courseName");
             /*Create new instance of a student to be used for the database.
               This student object is missing the "description about meeting" currently*/
             Student s1 = new Student(StudentName, email, StudentNumber, professorName, courseName);
-                   
+            StudentEmail.Email mail = new StudentEmail.Email(email, StudentName, professorName, courseName);
+            mail.CreateSession();
+            mail.ComposeEmail();
+            mail.SendEmail();
                    
                    
         %>
             
-            
         
         
         
         
-    </body>
+    
 </html>
