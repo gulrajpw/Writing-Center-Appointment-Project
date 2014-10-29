@@ -29,19 +29,19 @@
         <h1>Please fill out this form to create an appointment</h1>
         <form name ="Input" action ="CollectStudentInfo.jsp" method="Post">
             Enter your name:
-            <input type="text" name="StudentName" />
+            <input type="text" name="StudentName" /><br>
             
             Enter your email address:
-            <input type="text" name="StudentEmail" />
+            <input type="text" name="StudentEmail" /><br>
             
            Enter your student number:
-           <input type= "text" name ="StudentNumber" />
+           <input type= "text" name ="StudentNumber" /><br>
                    
            Enter the professor name:
-           <input type ="text" name ="professorName" />
+           <input type ="text" name ="professorName" /><br>
                 
            Enter your course name:
-           <input type="text" name ="courseName"/>
+           <input type="text" name ="courseName"/><br>
            
            
            <input type ="submit" value="OK"/>   <% //the submit button %>
