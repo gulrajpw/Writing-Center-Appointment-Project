@@ -1,0 +1,112 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Nov 29, 2014, 7:20:09 PM
+    Author     : emily
+*/
+.ui-timepicker-div .ui-widget-header { margin-bottom: 8px; }
+.ui-timepicker-div dl { text-align: left; }
+.ui-timepicker-div dl dt { float: left; clear:left; padding: 0 0 0 5px; }
+.ui-timepicker-div dl dd { margin: 0 10px 10px 40%; }
+.ui-timepicker-div td { font-size: 90%; }
+.ui-tpicker-grid-label { background: none; border: none; margin: 0; padding: 0; }
+
+.ui-timepicker-rtl{ direction: rtl; }
+.ui-timepicker-rtl dl { text-align: right; padding: 0 5px 0 0; }
+.ui-timepicker-rtl dl dt{ float: right; clear: right; }
+.ui-timepicker-rtl dl dd { margin: 0 40% 10px 10px; }
+
+body{
+    background-color: #045746;
+
+}
+h2{
+    height:200px;
+     background-image: url('HEADER.png');
+     background-size: 100% 100%;
+     background-repeat: no-repeat;
+}
+
+#studentform, #appform, #form {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 500px;
+    background: #FAD711;
+    padding: 20px 30px 20px 30px;
+    font: 12px "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: black;
+    border: solid 2px black;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+}
+h3 {
+    padding: 0px 0px 10px 40px;
+    display: block;
+    border-bottom: 2px solid #045746;
+    margin: -10px -30px 30px -30px;
+    font: bold 23px/100% Verdana, Tahoma, sans-serif;
+    text-shadow: 1px 1px 1px #444;
+    font-variant: small-caps;
+    color: #045746;
+    alignment-adjust: middle;
+}
+
+
+
+textarea {
+    border: solid 1px #E5E5E5;
+    padding: 5px;
+    outline: 0;
+    font: normal 12px/100% Verdana, Tahoma, sans-serif;
+    width: 200px;
+    background: #FFFFFF url('<span class="skimlinks-unlinked">bg_form.png</span>') left top repeat-x;
+    background: -webkit-gradient(linear, left top, left 25, from(#FFFFFF), color-stop(4%, #EEEEEE), to(#FFFFFF));
+    background: -moz-linear-gradient(top, #FFFFFF, #EEEEEE 1px, #FFFFFF 25px);
+    box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
+    -moz-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
+    -webkit-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
+    }
+   
+textarea {
+    width: 400px;
+    max-width: 400px;
+    height: 100px;
+    line-height: 120%;
+    }
+   
+input:hover, textarea:hover,
+input:focus, textarea:focus {
+    border-color: #C9C9C9;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 8px;
+    }
+   
+.submit input {
+    width: auto;
+    padding: 9px 9px;
+    background: #617798;
+    border: 0;
+    font-size: 14px;
+    color: #FFFFFF;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    }
+    
+    #expand, #collapse{
+    width: auto;
+    margin-left: 130px;
+    background: #045746;
+    font-size: 10px;
+    color: white;
+    }
+    
+    label{
+    font: bold 12px/100% Verdana, Tahoma, sans-serif;
+    font-variant: small-caps;
+    color: black;
+    margin-left: -10px;
+    }
+    
