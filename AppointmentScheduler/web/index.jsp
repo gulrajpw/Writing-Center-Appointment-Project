@@ -37,6 +37,25 @@
            Enter your student number:
            <input type= "text" name ="StudentNumber" /><br>
                    
+           Enter your student status:
+           
+           <% //Need to figure out what to do with these data fields.    %>
+           Undergraduate:
+            <input type="checkbox" name="Freshman" checked="checked" /> Freshman
+            <input type="checkbox" name="Sophomore"  /> Sophomore 
+            <input type="checkbox" name="Junior" checked="checked"  /> Junior
+            <input type="checkbox" name="Senior" checked="checked"  /> Senior
+                                                
+           Graduate:
+             <input type="checkbox" name="MS/MA" checked="checked"  /> MS/MA
+             <input type="checkbox" name="DPT" checked="checked"  /> DPT
+             <input type="checkbox" name="OT" checked="checked"  /> OT
+             <input type="checkbox" name="PhD" checked="checked"  /> PhD
+            
+             
+            Enter your assignment type:
+            <input type ="text" name="AssignmentType" /><br>
+              
            Enter the professor name:
            <input type ="text" name ="professorName" /><br>
                 

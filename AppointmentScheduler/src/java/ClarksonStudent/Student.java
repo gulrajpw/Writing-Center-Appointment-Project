@@ -20,10 +20,17 @@ public class Student {
     private static String professorName;
     private static List<String> ApptInfo;
     private static String courseName; //CS350
+    private static String AssignmentType;
+    
     
     public Student() {};
-    public Student(String studentName, String email, int number, String profName, String courseName) {}; // default constructor
+    public Student(String studentName, String email, int number, String profName, String courseName, String AssignmentType) {}; // default constructor
             
+    public static String getAssignmentType()
+    {
+        return AssignmentType;
+    }
+    
     
     public static String getStudentName()
     {        return StudentName;
@@ -66,6 +73,16 @@ public class Student {
         this.StudentName = StudentName;
     }
 
+    /**
+     * *
+     * 
+     * @param AssignmentType the AssignmentType to set 
+     */
+    public void setAssignmentType(String AssignmentType)
+    {
+    this.AssignmentType = AssignmentType;    
+    }
+    
     /**
      * @param StudentEmail the StudentEmail to set
      */

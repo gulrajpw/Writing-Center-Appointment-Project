@@ -30,9 +30,11 @@
             int StudentNumber = Integer.parseInt(request.getParameter("StudentNumber"));
             String professorName = request.getParameter("professorName");
             String courseName = request.getParameter("courseName");
+            String AssignmentType = request.getParameter("AssignmentType");
+            
             /*Create new instance of a student to be used for the database.
               This student object is missing the "description about meeting" currently*/
-            Student s1 = new Student(StudentName, email, StudentNumber, professorName, courseName);
+            Student s1 = new Student(StudentName, email, StudentNumber, professorName, courseName, AssignmentType);
             StudentEmail.Email mail = new StudentEmail.Email(email, StudentName, professorName, courseName);
             mail.CreateSession();
             mail.ComposeEmail();
