@@ -20,7 +20,7 @@
         <%
             //The appointment info List is not being filled here
             //This information needs to be sent out to the writing center somehow.
-            String datetime = request.getParameter("datetime");
+            String datetime = request.getParameter("datetime"); //use this for creating appointment.
             String studentid = request.getParameter("studentid");
             String course = request.getParameter("course");
             String coursename = request.getParameter("coursename");
