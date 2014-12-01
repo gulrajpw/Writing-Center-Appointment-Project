@@ -10,10 +10,21 @@ $(document).ready(function(){
     $('#courseinfo').hide();
     $('#notcourse').hide();
     $('#requiredvisit').hide();
-    $('#datetime').datetimepicker({
-	controlType: 'select',
-	timeFormat: 'hh:mm tt'
-    });
+   
+   $("#checkavail").on('click', function(){
+       var date = $("#datetimepicker").val();
+        $.ajax({
+                type: "POST",
+                url: "availabledates.jsp",
+                data: {"datetime" : date}, 
+                cache: false,
+                success: function(result){
+                 alert(result);
+            }
+        });
+       
+   });
+   
     $('#courseyes').on('click', function(){
         $('#courseinfo').show();
         if($('#notcourse').show())
@@ -81,7 +92,7 @@ $('#collapse').click(function(){
     $('#studentinfo').hide();
     $('#expand').show();
     $('#collapse').hide();
-})
+});
 
 $("#submitappointment").click(function(){
         var course;

@@ -28,24 +28,31 @@
             <h2></h2> <!-- Required div Starts Here -->
            <div id="form">
                <h3>Set an Appointment</h3>
-            
+            <center>
+               <label>Writing Center Hours:</label><br>
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label>Monday - Thursday:</label> Noon - 5:00pm & 6:30pm - 8:00pm<br>
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label>Friday:</label> Noon - 2:30pm<br>
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label>Sunday:</label> 6:00pm - 8:00pm<br><br>
+               </center>
   
-  <p><label>Select a date and time:</label>
-  <input type="text" name="datetimepicker" id="datetimepicker" value="" />
+  <label>Select a date & time:</label>
+  <input type="text" name="datetimepicker" id="datetimepicker" />
+
       <script> 
-$(function() {
+$(document).ready(function(){
     $('#datetimepicker').datetimepicker({
 	controlType: 'select',
         dateFormat: 'yy-mm-dd', 
         timeFormat: 'hh:mm:ss',
         hourMin: 12,
-	hourMax: 17,
+	hourMax: 20,
         stepMinute: 30,
-        secondMax:00
+        secondMax:00,
+    });
 });
-});
-</script></p>
-      
+</script>
+  <input id="checkavail" name="checkavail" type="button" value="Check Availability" />
+      <br><br>
             
             
             
