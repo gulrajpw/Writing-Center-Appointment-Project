@@ -3,8 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Greg/Documents/GitHub/Writing-Center-Appointment-Project/AppointmentScheduler%20Test/web/datetimepicker.js</file>
-            <file>file:/C:/Users/Greg/Documents/GitHub/Writing-Center-Appointment-Project/AppointmentScheduler%20Test/web/availabledates.jsp</file>
+            <file>file:/C:/Users/Greg/Documents/GitHub/Writing-Center-Appointment-Project/AppointmentScheduler%20Test/web/index.jsp</file>
+            <file>file:/C:/Users/Greg/Documents/GitHub/Writing-Center-Appointment-Project/AppointmentScheduler%20Test/src/java/OutlookRequest/OutlookAppointmentRequest.java</file>
+            <file>file:/C:/Users/Greg/Documents/GitHub/Writing-Center-Appointment-Project/AppointmentScheduler%20Test/src/java/Email/Email.java</file>
+            <file>file:/C:/Users/Greg/Documents/GitHub/Writing-Center-Appointment-Project/AppointmentScheduler%20Test/web/sendoutlookrequest.jsp</file>
+            <file>file:/C:/Users/Greg/Documents/GitHub/Writing-Center-Appointment-Project/AppointmentScheduler%20Test/src/java/OutlookRequest/OutlookInfo.java</file>
             <file>file:/C:/Users/Greg/Documents/GitHub/Writing-Center-Appointment-Project/AppointmentScheduler%20Test/web/appointmentsubmit.jsp</file>
             <file>file:/C:/Users/Greg/Documents/GitHub/Writing-Center-Appointment-Project/AppointmentScheduler%20Test/web/studentsubmit.jsp</file>
         </group>

@@ -10,7 +10,7 @@
 
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html
+<!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -40,7 +40,7 @@
            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/wcdatabase", "root", "root");
            Statement st=con.createStatement();
            int i=st.executeUpdate("INSERT INTO appointment(studentid, datetime, coursename, instructor, assignmenttype, progress, required, requiredreason, esl) VALUES('"+studentid+"','"+datetime+"','"+coursename+"','"+instructor+"','"+assignmenttype+"','"+progress+"','"+required+"','"+reasonrequired+"','"+esl+"')");
-        System.out.println("Appointment Data is successfully inserted!");
+        System.out.println("Data is successfully inserted!");
         }
         catch(Exception e){
         System.out.print(e);
