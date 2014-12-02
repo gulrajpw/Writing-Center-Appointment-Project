@@ -14,8 +14,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Writing Center Appointments DataBase</title>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="databasestyle.css" /> 
         
     </head>
     <body>
@@ -30,13 +31,15 @@
             <option value="date">Date</option>
         </select>
          <input  type="submit" name="submit" value="Search">
-
-    <table id="students" border="2">
+<div class="CSSTable" >
+    <table id="students">
     <tr>
-        <td bgcolor="red">Student Id</td>
-        <td bgcolor="red">Last Name</td>
-        <td bgcolor="red">First Name</td>
-        <td bgcolor="red">Email</td>
+        <td></td>
+        <td>Student Id</td>
+        <td>Last Name</td>
+        <td>First Name</td>
+        <td>Email</td>
+        <td></td>
      </tr>
     <%
        
@@ -47,15 +50,32 @@
         Statement stmt=con.createStatement();
         String query="select * from student";
         ResultSet rs=stmt.executeQuery(query);
+        ArrayList<String> stdntids = new ArrayList();
+        ArrayList<String> lastnames = new ArrayList();
+        ArrayList<String> firstnames = new ArrayList();
+        ArrayList<String> emails = new ArrayList();
         while(rs.next())
         {
-
+            stdntids.add(rs.getString("studentid"));
+            lastnames.add(rs.getString("lastname"));
+            firstnames.add(rs.getString("firstname"));
+            emails.add(rs.getString("email"));
+        }
+        
+        for(int i = 0; i < stdntids.size(); i++)
+        {
         %>
+        
         <tr>
-        <td><input id="studentnum" type="submit" name="studentid" value="<%=rs.getString("studentid") %>" ></td>
-        <td><%=rs.getString("lastname") %></td>
-        <td><%=rs.getString("firstname") %></td>
-        <td><%=rs.getString("email") %></td>
+        <td><%=i+1%></td>
+        <td><%=stdntids.get(i)%></td>
+        <td><%=lastnames.get(i)%></td>
+        <td><%=firstnames.get(i)%></td>
+        <td><%=emails.get(i)%></td>
+        <td><input type="hidden" name="ln" value="<%=lastnames.get(i)%>" />
+            <input type="hidden" name="fn" value="<%=firstnames.get(i)%>" />
+            <input type="hidden" name="studentid" value="<%=stdntids.get(i)%>" />
+            <input type="submit" value="View Appointments"></td>
         </tr>
         <%
 
@@ -72,6 +92,7 @@
     e.printStackTrace();
     }
     %>
-</form>
+</div>
+        </form>
     </body>
 </html>

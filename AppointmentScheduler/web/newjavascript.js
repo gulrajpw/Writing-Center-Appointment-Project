@@ -96,19 +96,21 @@ $('#collapse').click(function(){
 
 $("#submitappointment").click(function(){
         var course;
+        var assignmenttype;
         if($("#courseyes"))
         {
             course = $("#courseyes").val();
+            assignmenttype = $("#assigntype").val();
         }
         else if($("#courseno"))
         {
             course = $("#courseno").val();
+            assignmenttype = $("#reason").val();
         }
         var coursename = $("#coursename").val();
         var instructor = $("#instructor").val();
         var studentid = $("#studentid").val();
-        var assignmenttype = $("#assigntype").val();
-        var draft = $("#drafts").val();
+        var progress = $("#drafts").val();
         var goals;
         if($("#goals1"))
         {
@@ -164,7 +166,7 @@ $("#submitappointment").click(function(){
         }
         if($("#goals14"))
         {
-            goals += $("#goals14").val()+"\n";
+            goals += $("#goalsother").val()+"\n";
         }
         var required;
         if($("#requiredyes"))
@@ -177,6 +179,17 @@ $("#submitappointment").click(function(){
         }
         var reasonrequired = $("#reasonrequired").val();
         var datetime = $('#datetimepicker').val();
+        
+        var esl;
+        if($("#eslyes"))
+        {
+            esl = $("#eslyes").val();
+        }
+        else if($("eslno"))
+        {
+            esl = $("eslno").val();
+        }
+        
 
         // Returns successful data submission message when the entered information is stored in database
         if(course==''||required=='')
@@ -191,14 +204,14 @@ $("#submitappointment").click(function(){
                 url: "appointmentsubmit.jsp",
                 data: { "studentid" : studentid,
                     "datetime" : datetime,
-                    "course" : course, 
                     "coursename" : coursename,
                      "instructor" : instructor, 
                      "assignmenttype" : assignmenttype,
-                      "draft" : draft,
-                      "goals" : goals,
+                      "progress" : progress,
+                      "reasons" : goals,
                       "required" : required,
-                      "reasonrequired" : reasonrequired
+                      "reasonrequired" : reasonrequired,
+                      "esl" : esl
                        }, 
                 cache: false,
                 success: function(result){

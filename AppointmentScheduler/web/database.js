@@ -5,19 +5,17 @@
  */
 
 $(document).ready(function(){
-    $("#appointmentdetails").hide();
-    
     $("#details").click(function(){
        var id = $("#details").name();
         $.ajax({
                 type: "POST",
-                url: "writingcenterappointments.jsp",
+                url: "detailview.jsp",
                 data: {"appid" : id}, 
                 cache: false,
                 success: function(result){
                   alert(result);
-                  $("#appointmentdetails").show();
-            }
+                  
+                }
         });
     
     });
