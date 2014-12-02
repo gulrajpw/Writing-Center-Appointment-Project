@@ -28,24 +28,31 @@
             <h2></h2> <!-- Required div Starts Here -->
            <div id="form">
                <h3>Set an Appointment</h3>
-            
+            <center>
+               <label>Writing Center Hours:</label><br>
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label>Monday - Thursday:</label> Noon - 5:00pm & 6:30pm - 8:00pm<br>
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label>Friday:</label> Noon - 2:30pm<br>
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label>Sunday:</label> 6:00pm - 8:00pm<br><br>
+               </center>
   
-  <p><label>Select a date and time:</label>
-  <input type="text" name="datetimepicker" id="datetimepicker" value="" />
+  <label>Select a date & time:</label>
+  <input type="text" name="datetimepicker" id="datetimepicker" />
+
       <script> 
-$(function() {
+$(document).ready(function(){
     $('#datetimepicker').datetimepicker({
 	controlType: 'select',
         dateFormat: 'yy-mm-dd', 
         timeFormat: 'hh:mm:ss',
         hourMin: 12,
-	hourMax: 17,
+	hourMax: 19,
         stepMinute: 30,
         secondMax:00
+    });
 });
-});
-</script></p>
-      
+</script>
+  <input id="checkavail" name="checkavail" type="button" value="Check Availability" />
+      <br><br>
             
             
             
@@ -75,11 +82,12 @@ $(function() {
                     <input name="course" id="courseyes" type="radio" value="yes"> Yes <br>
                     <input name="course" id="courseno" type="radio" value="no"> No <br>
                     <div id="notcourse">
-                        <input id="reason" type="checkbox" value="scholar"> Scholarship Essay <br>
-                        <input id="reason" type="checkbox" value="studyabroad"> Study Abroad Essay <br>
-                        <input id="reason" type="checkbox" value="coverletter"> Cover Letter <br>
-                        <input id="reason" type="checkbox" value="resume"> Resume <br>
-                        <input id="reason" type="checkbox" value="gradschoolapp"> Grad School Application Materials <br>
+                        <label>What do you need help with?</label><br>
+                        <input id="reason" type="checkbox" value="Scholarship Essay"> Scholarship Essay <br>
+                        <input id="reason" type="checkbox" value="Study Abroad Essay"> Study Abroad Essay <br>
+                        <input id="reason" type="checkbox" value="Cover Letter"> Cover Letter <br>
+                        <input id="reason" type="checkbox" value="Resume"> Resume <br>
+                        <input id="reason" type="checkbox" value="Grad School Application Materials"> Grad School Application Materials <br>
                         <input id="reason" type="checkbox" value="other"> Other <input id="reasonother" type="text" value="" /><br><br>
                         
                     </div>
@@ -114,17 +122,17 @@ $(function() {
                          
                         </div>
                     <label> Are you required by your professor to visit?</label><br>
-                    <input name="required" id="requiredyes" type="radio" value="yes"> Yes <br>
-                    <input name ="required" id="requiredno" type="radio" value="no"> No <br>
+                    <input name="required" id="requiredyes" type="radio" value="Yes"> Yes <br>
+                    <input name ="required" id="requiredno" type="radio" value="No"> No <br>
                     <div id="requiredvisit">
-                        <label>Why?</label>
-                        <input id="reasonrequired" type="checkbox" value="cowriting"> Co-Writing Requirement<br>
-                        <input id="reasonrequired" type="checkbox" value="professor"> Professor Required<br>
+                        <label>Why?</label><br>
+                        <input id="reasonrequired" type="checkbox" value="Co-Writing Requirement"> Co-Writing Requirement<br>
+                        <input id="reasonrequired" type="checkbox" value="Professor Required"> Professor Required<br>
                         <input id="reasonrequired" type="checkbox" value="other"> Other <input id="requiredother" type="text" name="other" /><br><br>
                     </div>
                     <label> Are you an ESL Student? </label><br>
-                    <input name="esl" id="eslyes" type="radio" value="yes"> Yes <br>
-                    <input name ="esl" id="eslno" type="radio" value="no"> No <br>
+                    <input name="esl" id="eslyes" type="radio" value="Yes"> Yes <br>
+                    <input name ="esl" id="eslno" type="radio" value="No"> No <br>
                     
                     <input id="submitappointment" type="button" value="Submit" />
                 </div>

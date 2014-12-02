@@ -1,0 +1,103 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Dec 1, 2014, 3:05:35 PM
+    Author     : emily
+*/
+
+.CSSTable {
+	margin:0px;padding:0px;
+	width:100%;
+	border:1px solid #000000;
+	
+	-moz-border-radius-bottomleft:0px;
+	-webkit-border-bottom-left-radius:0px;
+	border-bottom-left-radius:0px;
+	
+	-moz-border-radius-bottomright:0px;
+	-webkit-border-bottom-right-radius:0px;
+	border-bottom-right-radius:0px;
+	
+	-moz-border-radius-topright:0px;
+	-webkit-border-top-right-radius:0px;
+	border-top-right-radius:0px;
+	
+	-moz-border-radius-topleft:0px;
+	-webkit-border-top-left-radius:0px;
+	border-top-left-radius:0px;
+}.CSSTable table{
+    border-collapse: collapse;
+        border-spacing: 0;
+	width:100%;
+	height:100%;
+	margin:0px;padding:0px;
+}.CSSTable tr:last-child td:last-child {
+	-moz-border-radius-bottomright:0px;
+	-webkit-border-bottom-right-radius:0px;
+	border-bottom-right-radius:0px;
+}
+.CSSTable table tr:first-child td:first-child {
+	-moz-border-radius-topleft:0px;
+	-webkit-border-top-left-radius:0px;
+	border-top-left-radius:0px;
+}
+.CSSTable table tr:first-child td:last-child {
+	-moz-border-radius-topright:0px;
+	-webkit-border-top-right-radius:0px;
+	border-top-right-radius:0px;
+}.CSSTable tr:last-child td:first-child{
+	-moz-border-radius-bottomleft:0px;
+	-webkit-border-bottom-left-radius:0px;
+	border-bottom-left-radius:0px;
+}.CSSTable tr:hover td{
+	
+}
+.CSSTable tr:nth-child(odd){ background-color:#f7ecb7; }
+.CSSTable tr:nth-child(even)    { background-color:#f7e68f; }.CSSTable td{
+	vertical-align:middle;
+	
+	
+	border:1px solid #000000;
+	border-width:0px 1px 1px 0px;
+	text-align:center;
+	padding:5px;
+	font: normal 12px/100% Verdana, Tahoma, sans-serif;
+	color:#000000;
+}.CSSTable tr:last-child td{
+	border-width:0px 1px 0px 0px;
+}.CSSTable tr td:last-child{
+	border-width:0px 0px 1px 0px;
+}.CSSTable tr:last-child td:last-child{
+	border-width:0px 0px 0px 0px;
+}
+.CSSTable tr:first-child td{
+	background:-o-linear-gradient(bottom, #36796B 5%, #045746 100%);
+        background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05,  #36796B), color-stop(1, #045746) );
+	background:-moz-linear-gradient( center top,  #36796B 5%, #045746 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#36796B", endColorstr="#045746");	background: -o-linear-gradient(top, #36796B,045746);
+
+	background-color:#36796B;
+	border:0px solid #000000;
+	text-align:center;
+	border-width:0px 0px 1px 1px;
+	font: bold 18px/100% Verdana, Tahoma, sans-serif;
+        font-variant: small-caps;
+	color:#ffffff;
+}
+.CSSTable tr:first-child:hover td{
+	background:-o-linear-gradient(bottom, #36796B 5%, #045746 100%);
+        background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05,  #36796B), color-stop(1, #045746) );
+	background:-moz-linear-gradient( center top,  #36796B 5%, #045746 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#36796B", endColorstr="#045746");	background: -o-linear-gradient(top, #36796B,045746);
+
+	background-color:#36796B;
+}
+.CSSTable tr:first-child td:first-child{
+	border-width:0px 0px 1px 0px;
+}
+.CSSTable tr:first-child td:last-child{
+	border-width:0px 0px 1px 1px;
+}

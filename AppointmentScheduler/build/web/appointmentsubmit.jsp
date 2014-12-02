@@ -9,7 +9,6 @@
 
 
 
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -20,27 +19,34 @@
         <%
             //The appointment info List is not being filled here
             //This information needs to be sent out to the writing center somehow.
-            String datetime = request.getParameter("datetime"); //use this for creating appointment.
+            String datetime = request.getParameter("datetime");
             String studentid = request.getParameter("studentid");
-            String course = request.getParameter("course");
             String coursename = request.getParameter("coursename");
             String instructor = request.getParameter("instructor");
             String assignmenttype = request.getParameter("assignmenttype");
-            String draft = request.getParameter("draft");
-            String goals = request.getParameter("goals");
+            String progress = request.getParameter("progress");
+            String reasons = request.getParameter("reasons");
             String required = request.getParameter("required");
             String reasonrequired = request.getParameter("reasonrequired");
+            String esl = request.getParameter("esl");
+            
+                       
+         //   String S = C.toString();
+         //   System.out.println(S);
+//            System.out.println("\n\n\n\n\n");
+//            System.out.println(datetime);
         try{
          Class.forName("com.mysql.jdbc.Driver");
            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/wcdatabase", "root", "root");
            Statement st=con.createStatement();
-           int i=st.executeUpdate("INSERT INTO appointment(studentid, datetime, course, coursename, instructor, assignmenttype, draft, professorrequired, professorrequiredreason) VALUES('"+studentid+"','"+datetime+"','"+course+"','"+coursename+"','"+instructor+"','"+assignmenttype+"','"+draft+"','"+required+"','"+reasonrequired+"')");
+           int i=st.executeUpdate("INSERT INTO appointment(studentid, datetime, coursename, instructor, assignmenttype, progress, required, requiredreason, esl) VALUES('"+studentid+"','"+datetime+"','"+coursename+"','"+instructor+"','"+assignmenttype+"','"+progress+"','"+required+"','"+reasonrequired+"','"+esl+"')");
         System.out.println("Data is successfully inserted!");
         }
         catch(Exception e){
         System.out.print(e);
         e.printStackTrace();
         }
+            // Email mail = new Email(/*feilds*/);
            // mail.CreateSession();
            // mail.ComposeEmail();
            // mail.SendEmail();

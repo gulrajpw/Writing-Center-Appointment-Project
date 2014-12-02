@@ -4,7 +4,7 @@
     Author     : emily
 --%>
 
- <%@page import="java.sql.*,java.util.*"%>
+<%@page import="java.sql.*,java.util.*"%>
 
 
 
@@ -36,12 +36,21 @@
               This student object is missing the "description about meeting" currently*/
             //Student s1 = new Student(name, email, studentid);
            // StudentEmail.Email mail = new StudentEmail.Email(email, StudentName, professorName, courseName, day, month, year, time);
-        try{
-         Class.forName("com.mysql.jdbc.Driver").newInstance();
+      //  OutlookAppointmentRequest object = new OutlookAppointmentRequest();
+       // object.CreateSession();
+       // object.OutlookAPTrequest();
+        
+         try{
+           Class.forName("com.mysql.jdbc.Driver").newInstance();
            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/wcdatabase", "root", "root");
-           Statement st=con.createStatement();
-           int i=st.executeUpdate("INSERT INTO student(studentid,lastname,firstname,email) VALUES('"+studentid+"','"+lastname+"','"+firstname+"','"+email+"')");
-        System.out.println("Data is successfully inserted!");
+           PreparedStatement stmt=con.prepareStatement("SELECT * FROM appointment WHERE studentid = ?");
+           stmt.setString(1, studentid);
+           ResultSet rs=stmt.executeQuery();
+           if(rs==null){
+                Statement st=con.createStatement();
+                int i=st.executeUpdate("INSERT INTO student(studentid,lastname,firstname,email) VALUES('"+studentid+"','"+lastname+"','"+firstname+"','"+email+"')");
+                System.out.println("Data is successfully inserted!");
+           }
         }
         catch(Exception e){
         System.out.print(e);
