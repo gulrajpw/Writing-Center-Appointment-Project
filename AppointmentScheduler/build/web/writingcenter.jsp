@@ -10,6 +10,7 @@
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.Connection"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -17,24 +18,27 @@
         <title>Writing Center Appointments DataBase</title>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
         <link rel="stylesheet" type="text/css" href="databasestyle.css" /> 
-        
     </head>
     <body>
         <h2>Search the Database</h2>
-        <form action="writingcenterappointments.jsp" method="POST">
-       
-        <label>Search:</label><input id="searchbar" type="text" /> in <select id="searchcategory">
+       <div id="searchdiv">
+        <form name="form1" action="search.jsp" method="POST">
+        <label>Search:</label><input name="input" type="text" /> in <select name="category">
             <option value="studentid">Student Id</option>
             <option value="firstname">First Name</option>
             <option value="lastname">Last Name</option>
             <option value="tutor">Tutor</option>
             <option value="date">Date</option>
         </select>
-         <input  type="submit" name="submit" value="Search">
-<div class="CSSTable" >
+            <input type="submit" value="Search">
+        </form>
+
+      </div>
+
+         
+    <div class="CSSTable" >
     <table id="students">
     <tr>
-        <td></td>
         <td>Student Id</td>
         <td>Last Name</td>
         <td>First Name</td>
@@ -50,32 +54,22 @@
         Statement stmt=con.createStatement();
         String query="select * from student";
         ResultSet rs=stmt.executeQuery(query);
-        ArrayList<String> stdntids = new ArrayList();
-        ArrayList<String> lastnames = new ArrayList();
-        ArrayList<String> firstnames = new ArrayList();
-        ArrayList<String> emails = new ArrayList();
         while(rs.next())
         {
-            stdntids.add(rs.getString("studentid"));
-            lastnames.add(rs.getString("lastname"));
-            firstnames.add(rs.getString("firstname"));
-            emails.add(rs.getString("email"));
-        }
-        
-        for(int i = 0; i < stdntids.size(); i++)
-        {
+            String studentid = rs.getString("studentid");
+            String lastname = rs.getString("lastname");
+            String firstname = rs.getString("firstname");
+            String email = rs.getString("email");
         %>
-        
         <tr>
-        <td><%=i+1%></td>
-        <td><%=stdntids.get(i)%></td>
-        <td><%=lastnames.get(i)%></td>
-        <td><%=firstnames.get(i)%></td>
-        <td><%=emails.get(i)%></td>
-        <td><input type="hidden" name="ln" value="<%=lastnames.get(i)%>" />
-            <input type="hidden" name="fn" value="<%=firstnames.get(i)%>" />
-            <input type="hidden" name="studentid" value="<%=stdntids.get(i)%>" />
-            <input type="submit" value="View Appointments"></td>
+        <td><%=studentid%></td>
+        <td><%=lastname%></td>
+        <td><%=firstname%></td>
+        <td><%=email%></td>
+        <td><form name="form2" action="writingcenterappointments.jsp" method="POST">
+            <input name="studentid" type="hidden" value="<%=studentid%>">
+            <input type="submit" value="View Appointments">
+            </form></td>
         </tr>
         <%
 
@@ -93,6 +87,5 @@
     }
     %>
 </div>
-        </form>
     </body>
 </html>

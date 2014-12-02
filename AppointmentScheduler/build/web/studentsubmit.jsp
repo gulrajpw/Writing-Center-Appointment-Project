@@ -4,6 +4,7 @@
     Author     : emily
 --%>
 
+ <%@page import="OutlookRequest.OutlookAppointmentRequest"%>
 <%@page import="java.sql.*,java.util.*"%>
 
 
@@ -36,17 +37,17 @@
               This student object is missing the "description about meeting" currently*/
             //Student s1 = new Student(name, email, studentid);
            // StudentEmail.Email mail = new StudentEmail.Email(email, StudentName, professorName, courseName, day, month, year, time);
-      //  OutlookAppointmentRequest object = new OutlookAppointmentRequest();
-       // object.CreateSession();
-       // object.OutlookAPTrequest();
         
-         try{
+        try{
            Class.forName("com.mysql.jdbc.Driver").newInstance();
            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/wcdatabase", "root", "root");
-           PreparedStatement stmt=con.prepareStatement("SELECT * FROM appointment WHERE studentid = ?");
+           PreparedStatement stmt=con.prepareStatement("SELECT * FROM student WHERE studentid = ?");
            stmt.setString(1, studentid);
            ResultSet rs=stmt.executeQuery();
-           if(rs==null){
+           rs.last(); // position on last row
+           int rowcount = 0;
+           rowcount = rs.getRow(); // get row no.
+           if(rowcount == 0){
                 Statement st=con.createStatement();
                 int i=st.executeUpdate("INSERT INTO student(studentid,lastname,firstname,email) VALUES('"+studentid+"','"+lastname+"','"+firstname+"','"+email+"')");
                 System.out.println("Data is successfully inserted!");

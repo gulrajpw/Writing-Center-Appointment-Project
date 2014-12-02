@@ -19,9 +19,7 @@ public class Email {
      String name;
      String course;
      String prof;
-     int day;
-     int month;
-     int year;
+     String date;
      String time;
      final String email_subject = "Writing Center Appointment Confirmation";
      Session session;
@@ -32,15 +30,11 @@ public class Email {
     public Email(){
     };
     
-    public Email(String to, String name, String prof, String course, int day, int month, int year, String time)
+    public Email(String to, String name, String date, String time)
     {
         this.to = to;
         this.name = name;
-        this.prof = prof;
-        this.course = course;
-        this.day = day;
-        this.month = month;
-        this.year = year;
+        this.date = date;
         this.time = time;
     }
     
@@ -72,12 +66,14 @@ public class Email {
             message.setSubject(email_subject);  
             message.setText(
                     name + "--\n"
-                            + "This email notification is a confirmation of your appointment with the Writing Center.\n"
+                            + "This email is confirming your request for an appointment with the Writing Center."
+                            + "\nYou will receive an Outlook Calander notification when your appointment is accepted."
                             + "\n"
-                            + "\tAppointment Date: " + month + "/" + day + "/" + year + "\n"
+                            + "\tAppointment Date: " + date + "\n"
                             + "\tAppointment Time: " + time + "\n"
-                            + "\tClass: " + course + "\n"
-                            + "\tProfessor: " + prof);  
+                            + "\n"
+                            + "\n"
+                            + "If you need to make any changes, please email wcenter@clarkson.edu");  
         }
         catch (MessagingException e) {e.printStackTrace();}
 

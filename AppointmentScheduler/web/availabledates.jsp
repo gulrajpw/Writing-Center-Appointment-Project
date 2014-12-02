@@ -3,6 +3,11 @@
     Created on : Nov 30, 2014, 8:55:31 PM
     Author     : emily
 --%>
+<%-- 
+    Document   : availabledates
+    Created on : Nov 30, 2014, 8:55:31 PM
+    Author     : emily
+--%>
 
 <%@page import="java.text.DateFormat"%>
 <%@page import="java.text.SimpleDateFormat"%>
@@ -26,7 +31,6 @@
            String[] time = timearray.split(":");
            int hour = Integer.parseInt(time[0]);
            int min = Integer.parseInt(time[1]);
-           hour = hour%12 + 12;
            SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
            Date date = format1.parse(datestring);
            int weekday = date.getDay();
@@ -86,4 +90,3 @@
                    
                    
         %>
-

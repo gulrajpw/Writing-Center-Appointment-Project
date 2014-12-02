@@ -5,7 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ page import="java.util.*,java.io.*,java.sql.*" errorPage="error.jsp" %>
+<%@ page import="java.util.*,java.io.*,java.sql.*" %>
 
 <!DOCTYPE html>
 <html>
@@ -43,9 +43,9 @@ $(document).ready(function(){
     $('#datetimepicker').datetimepicker({
 	controlType: 'select',
         dateFormat: 'yy-mm-dd', 
-        timeFormat: 'hh:mm:ss',
+        timeFormat: 'HH:mm:ss',
         hourMin: 12,
-	hourMax: 19,
+	hourMax: 20,
         stepMinute: 30,
         secondMax:00
     });
@@ -67,7 +67,25 @@ $(document).ready(function(){
                     <label>Email:</label>
                     <input id="email" type="text"><br><br>
                     <label>Student Number:</label>
-                    <input id="studentid" type="text"><br><br>
+                    <input id="studentid" type="text"><br>
+                    <%--<input name="standing" type="radio" value="undergraduate" />Undergraduate<br>
+                    <div id="underoptions">
+                    <select id="undergstanding">
+                        <option value="Freshman">Freshman</option>
+                        <option value="Sophomore">Sophomore</option>
+                        <option value="Junior">Junior</option>
+                        <option value="Senior">Senior</option>
+                    </select>
+                    </div>
+                    <input name="standing" type="radio" value="graduate" />Graduate<br>
+                     <div id="gradoptions">
+                    <select id="gradstanding">
+                        <option value="MS/MA">MS/MA</option>
+                        <option value="DPT">DPT</option>
+                        <option value="OT">OT</option>
+                        <option value="PhD">PhD</option>
+                    </select>
+                    </div><br> --%><br>
                     <input id="submitstudent" type="button" value="Submit" />
                     
                 </div>
@@ -83,12 +101,12 @@ $(document).ready(function(){
                     <input name="course" id="courseno" type="radio" value="no"> No <br>
                     <div id="notcourse">
                         <label>What do you need help with?</label><br>
-                        <input id="reason" type="checkbox" value="Scholarship Essay"> Scholarship Essay <br>
-                        <input id="reason" type="checkbox" value="Study Abroad Essay"> Study Abroad Essay <br>
-                        <input id="reason" type="checkbox" value="Cover Letter"> Cover Letter <br>
-                        <input id="reason" type="checkbox" value="Resume"> Resume <br>
-                        <input id="reason" type="checkbox" value="Grad School Application Materials"> Grad School Application Materials <br>
-                        <input id="reason" type="checkbox" value="other"> Other <input id="reasonother" type="text" value="" /><br><br>
+                        <input id="reason1" type="checkbox" value="Scholarship Essay"> Scholarship Essay <br>
+                        <input id="reason2" type="checkbox" value="Study Abroad Essay"> Study Abroad Essay <br>
+                        <input id="reason3" type="checkbox" value="Cover Letter"> Cover Letter <br>
+                        <input id="reason4" type="checkbox" value="Resume"> Resume <br>
+                        <input id="reason5" type="checkbox" value="Grad School Application Materials"> Grad School Application Materials <br>
+                        <input id="reason6" type="checkbox" value="other"> Other <input id="reasonother" type="text" value="" /><br><br>
                         
                     </div>
                     <div id="courseinfo">
@@ -98,26 +116,26 @@ $(document).ready(function(){
                         <input id="instructor" type="text" /><br><br>
                         <label>Assignment Type:</label>
                         <input id="assigntype" type="text" />
-                        <select name="drafts" >
-                            <option id="drafts" value="draft1">Draft 1?</option>
-                            <option id="drafts" value="draft2">Draft 2?</option>
-                            <option id="drafts" value="final">Final Draft?</option>
-                            <option id="drafts" value=""></option>
+                        <select id="progress" >
+                            <option value="First Draft">First Draft?</option>
+                            <option value="Second Draft">Second Draft?</option>
+                            <option value="Final Draft">Final Draft?</option>
+                            <option value="Other">Other</option>
                         </select><br>
                         <label> What do you hope to address as part of this session?</label><br>
-                         <input id="goals1" type="checkbox" value="clarify the assignment" > Clarify the Assignment (Have you spoken to your professor first)? <br>
-                         <input id="goals2" type="checkbox" value="thesis invention"> Thesis Invention (Ideas) <br>
-                         <input id="goals3" type="checkbox" value="thesis development"> Thesis Development (I have an idea but need help developing it) <br>
-                         <input id="goals4" type="checkbox" value="introduction paragraph"> Introduction Paragraph <br>
-                         <input id="goals5" type="checkbox" value="body/mainpoint invention"> Body/Main Point Invention (Ideas) <br>
-                         <input id="goals6" type="checkbox" value="development of mainpoints"> Development of Main Points (I have some but need help developing them) <br>
-                         <input id="goals7" type="checkbox" value="organization, flow and transitions"> Organization, Flow and Transitions <br>
-                         <input id="goals8" type="checkbox" value="analysis"> Analysis <br>
-                         <input id="goals9" type="checkbox" value="integration of quotes"> Integration of Quotes <br>
-                         <input id="goals10" type="checkbox" value="writing and idea clarity"> Writing and Idea Clarity (Does the paper make sense?) <br>
-                         <input id="goals11" type="checkbox" value="grammar and mechanics"> Grammar & Mechanics <br>
-                         <input id="goals12" type="checkbox" value="sentence-level help"> Sentence-Level Help <br>
-                         <input id="goals13" type="checkbox" value="citation format"> Citation Format <br>
+                         <input id="goals1" type="checkbox" value="Clarify the assignment" > Clarify the Assignment (Have you spoken to your professor first)? <br>
+                         <input id="goals2" type="checkbox" value="Thesis invention"> Thesis Invention (Ideas) <br>
+                         <input id="goals3" type="checkbox" value="Thesis development"> Thesis Development (I have an idea but need help developing it) <br>
+                         <input id="goals4" type="checkbox" value="Introduction paragraph"> Introduction Paragraph <br>
+                         <input id="goals5" type="checkbox" value="Body/Mainpoint invention"> Body/Main Point Invention (Ideas) <br>
+                         <input id="goals6" type="checkbox" value="Development of mainpoints"> Development of Main Points (I have some but need help developing them) <br>
+                         <input id="goals7" type="checkbox" value="Organization, flow and transitions"> Organization, Flow and Transitions <br>
+                         <input id="goals8" type="checkbox" value="Analysis"> Analysis <br>
+                         <input id="goals9" type="checkbox" value="Integration of quotes"> Integration of Quotes <br>
+                         <input id="goals10" type="checkbox" value="Writing and idea clarity"> Writing and Idea Clarity (Does the paper make sense?) <br>
+                         <input id="goals11" type="checkbox" value="Grammar and mechanics"> Grammar & Mechanics <br>
+                         <input id="goals12" type="checkbox" value="Sentence-level help"> Sentence-Level Help <br>
+                         <input id="goals13" type="checkbox" value="Citation format"> Citation Format <br>
                          <input id="goals14" type="checkbox" value="other"> Other <input id="goalsother" type="text" name="other" /><br>
                          
                         </div>
@@ -126,13 +144,20 @@ $(document).ready(function(){
                     <input name ="required" id="requiredno" type="radio" value="No"> No <br>
                     <div id="requiredvisit">
                         <label>Why?</label><br>
-                        <input id="reasonrequired" type="checkbox" value="Co-Writing Requirement"> Co-Writing Requirement<br>
-                        <input id="reasonrequired" type="checkbox" value="Professor Required"> Professor Required<br>
-                        <input id="reasonrequired" type="checkbox" value="other"> Other <input id="requiredother" type="text" name="other" /><br><br>
+                        <input id="reasonrequired1" type="checkbox" value="Co-Writing Requirement"> Co-Writing Requirement<br>
+                        <input id="reasonrequired2" type="checkbox" value="Professor Required"> Professor Required<br>
+                        <input id="reasonrequired3" type="checkbox" value="other"> Other <input id="requiredother" type="text" name="other" /><br>
                     </div>
                     <label> Are you an ESL Student? </label><br>
                     <input name="esl" id="eslyes" type="radio" value="Yes"> Yes <br>
                     <input name ="esl" id="eslno" type="radio" value="No"> No <br>
+               <%--     <label>Do any of these apply? (for internal use only; data is not shared):</label><br>
+                    <input id="internaluse1" type="checkbox" value="CUPO"> CUPO<br>
+                    <input id="internaluse2" type="checkbox" value="HEOP"> HEOP<br>
+                    <input id="internaluse3" type="checkbox" value="Clarkson School"> Clarkson School<br>
+                    <input id="internaluse4" type="checkbox" value="other"> Other <input id="internaluseother" type="text" name="other" /><br><br>
+                    
+                    --%>
                     
                     <input id="submitappointment" type="button" value="Submit" />
                 </div>

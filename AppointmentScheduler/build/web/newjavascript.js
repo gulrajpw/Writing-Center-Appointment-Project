@@ -10,6 +10,22 @@ $(document).ready(function(){
     $('#courseinfo').hide();
     $('#notcourse').hide();
     $('#requiredvisit').hide();
+    $('#underoptions').hide();
+    $('#gradoptions').hide();
+    
+    $("#undergrad").on('click', function(){
+       if($("#gradoptions").show()){
+           $("#gradoptions").hide();
+       } 
+       $("#underoptions").show();
+    });
+    
+     $("#grad").on('click', function(){
+       if($("#underoptions").show()){
+           $("#underoptions").hide();
+       } 
+       $("#gradoptions").show();
+    });
    
    $("#checkavail").on('click', function(){
        var date = $("#datetimepicker").val();
@@ -72,7 +88,7 @@ $(document).ready(function(){
                     document.getElementById("submitstudent").disabled = true;
                     $('#expand').show();
                     $('#app').show();
-                    alert(result);
+                    //alert(result);
                  }
                      
          
@@ -96,99 +112,126 @@ $('#collapse').click(function(){
 
 $("#submitappointment").click(function(){
         var course;
+        var coursename;
+        var instructor;
         var assignmenttype;
-        if($("#courseyes"))
+        var internaluse;
+        var progress;
+        if($("#courseyes").is(":checked"))
         {
             course = $("#courseyes").val();
             assignmenttype = $("#assigntype").val();
+            coursename = $("#coursename").val();
+            instructor = $("#instructor").val();
+            progress = $("#progress option:selected").val();
         }
-        else if($("#courseno"))
+        else if($("#courseno").is(":checked"))
         {
             course = $("#courseno").val();
-            assignmenttype = $("#reason").val();
+            if($("#reason1").is(":checked")){
+                assignmenttype = $("#reason1").val();
+            }
+            else if($("#reason2").is(":checked")){
+                assignmenttype = $("#reason2").val();
+            }
+            else if($("#reason3").is(":checked")){
+                assignmenttype = $("#reason3").val();
+            }
+            else if($("#reason3").is(":checked")){
+                assignmenttype = $("#reason3").val();
+            }
+            else if($("#reason4").is(":checked")){
+                assignmenttype = $("#reason4").val();
+            }
+            else if($("#reason5").is(":checked")){
+                assignmenttype = $("#reason5").val();
+            }
+            else if($("#reason6").is(":checked")){
+                assignmenttype = $("#reasonother").val();
+            }
         }
-        var coursename = $("#coursename").val();
-        var instructor = $("#instructor").val();
         var studentid = $("#studentid").val();
-        var progress = $("#drafts").val();
-        var goals;
-        if($("#goals1"))
+        var goals = "";
+        if($("#goals1").is(":checked"))
         {
             goals += $("#goals1").val() +", ";
         }
-        if($("#goals2"))
+        if($("#goals2").is(":checked"))
         {
             goals += $("#goals2").val() +", ";
         }
-        if($("#goals3"))
+        if($("#goals3").is(":checked"))
         {
             goals += $("#goals3").val() +", ";
         }
-        if($("#goals4"))
+        if($("#goals4").is(":checked"))
         {
             goals += $("#goals4").val() +", ";
         }
-        if($("#goals5"))
+        if($("#goals5").is(":checked"))
         {
             goals += $("#goals5").val() +", ";
         }
-        if($("#goals6"))
+        if($("#goals6").is(":checked"))
         {
             goals += $("#goals6").val() +", ";
         }
-        if($("#goals7"))
+        if($("#goals7").is(":checked"))
         {
             goals += $("#goals7").val() +", ";
         }
-        if($("#goals8"))
+        if($("#goals8").is(":checked"))
         {
-            goals += $("#goals8").val() +"\n";
+            goals += $("#goals8").val() +", ";
         }
-        if($("#goals9"))
+        if($("#goals9").is(":checked"))
         {
-            goals += $("#goals9").val() +"\n";
+            goals += $("#goals9").val() +", ";
         }
-        if($("#goals10"))
+        if($("#goals10").is(":checked"))
         {
-            goals += $("#goals10").val() +"\n";
+            goals += $("#goals10").val() +", ";
         }
-        if($("#goals11"))
+        if($("#goals11").is(":checked"))
         {
-            goals += $("#goals11").val() +"\n";
+            goals += $("#goals11").val() +", ";
         }
-        if($("#goals12"))
+        if($("#goals12").is(":checked"))
         {
-            goals += $("#goals12").val()+"\n";
+            goals += $("#goals12").val()+", ";
         }
-        if($("#goals13"))
+        if($("#goals13").is(":checked"))
         {
-            goals += $("#goals13").val()+"\n";
+            goals += $("#goals13").val()+", ";
         }
-        if($("#goals14"))
+        if($("#goals14").is(":checked"))
         {
-            goals += $("#goalsother").val()+"\n";
+            goals += $("#goalsother").val()+", ";
         }
-        var required;
-        if($("#requiredyes"))
+        var required = $('input:radio[name=required]:checked').val();
+        var reasonrequired = "";
+        if($("#requiredyes").is(":checked"))
         {
-            required = $("#requiredyes").val();
+            if($("#reasonrequired1").is(":checked"))
+            {
+                        reasonrequired = $("#reasonrequired1").val() + ", ";
+            }
+            if($("#reasonrequired2").is(":checked"))
+            {
+                        reasonrequired = $("#reasonrequired2").val() + ", ";
+            }
+             if($("#reasonrequired3").is(":checked"))
+            {
+                        reasonrequired = $("#requiredother").val() + ", ";
+            }
         }
-        else if($("requiredno"))
-        {
-            required = $("requiredno").val();
-        }
-        var reasonrequired = $("#reasonrequired").val();
         var datetime = $('#datetimepicker').val();
         
-        var esl;
-        if($("#eslyes"))
-        {
-            esl = $("#eslyes").val();
-        }
-        else if($("eslno"))
-        {
-            esl = $("eslno").val();
-        }
+        var esl = $('input:radio[name=esl]:checked').val();
+        
+        var firstname = $("#firstname").val();
+        var lastname = $("#lastname").val();
+        var email = $("#email").val();
         
 
         // Returns successful data submission message when the entered information is stored in database
@@ -202,7 +245,10 @@ $("#submitappointment").click(function(){
             $.ajax({
                 type: "POST",
                 url: "appointmentsubmit.jsp",
-                data: { "studentid" : studentid,
+                data: { "firstname" : firstname,
+                    "lastname" : lastname,
+                    "email" : email,
+                    "studentid" : studentid,
                     "datetime" : datetime,
                     "coursename" : coursename,
                      "instructor" : instructor, 
@@ -211,13 +257,18 @@ $("#submitappointment").click(function(){
                       "reasons" : goals,
                       "required" : required,
                       "reasonrequired" : reasonrequired,
-                      "esl" : esl
+                      "esl" : esl,
+                      "internaluse" : internaluse
                        }, 
                 cache: false,
                 success: function(result){
-                    alert(result);
-                    window.location = "calendar.jsp";
-            }
+                        alert("You've successfully requested an appointment with the Writing Center.");
+                        window.location = "index.jsp";
+                },
+                error: function(xhr, message, thrownError){
+                        alert("Error\n\nPlease select an available date and time.");
+                        
+                }
         });
     }
     return false;
