@@ -52,7 +52,7 @@ public class OutlookAppointmentRequest {
        MimeMessage message = new MimeMessage(session);
         message.setFrom(new InternetAddress(from));
         message.setSubject(subject);
-        message.addRecipient(message.RecipientType.TO, new InternetAddress(recipient));
+        message.addRecipient(Message.RecipientType.TO, new InternetAddress(recipient));
         
         //#4
         //Build the alternative MimeMultipart
@@ -116,12 +116,12 @@ public class OutlookAppointmentRequest {
         ///////////////////////////////////////////////////////
         ///////////////////////////////////////////////////////
         int day_of_month = cal.DAY_OF_MONTH;
-        cal.Add(day_of_month, 1);
+        cal.add(day_of_month, 1);
         
         Date start = cal.getTime();
         
         int hour_of_day = cal.HOUR_OF_DAY;
-        cal.Add(hour_of_day, 3);
+        cal.add(hour_of_day, 3);
         //////////////////////////////////////////////////////
         /////////////////////////////////////////////////////
         
