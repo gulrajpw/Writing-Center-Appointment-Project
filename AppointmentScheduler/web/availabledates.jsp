@@ -26,13 +26,13 @@
            String[] time = timearray.split(":");
            int hour = Integer.parseInt(time[0]);
            int min = Integer.parseInt(time[1]);
-         
-            SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
-            Date date = format1.parse(datestring);
-            int weekday = date.getDay();
+           hour = hour%12 + 12;
+           SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
+           Date date = format1.parse(datestring);
+           int weekday = date.getDay();
             
             Date today = new Date();
-            System.out.println(date.before(today)); //2014/08/06 15:59:48
+           /* System.out.println(date.before(today)); //2014/08/06 15:59:48*/
             
             
             /*DateFormat format2= new SimpleDateFormat("EEEE");
@@ -41,11 +41,11 @@
             System.out.println(datestring);
             System.out.println(date2.toString());
             System.out.println(day2);
-            System.out.println(date2.getDay());*/
+            System.out.println(date2.getDay());
             System.out.println(weekday);
             System.out.println(hour);
             
-            
+            */
             
         try{
          Class.forName("com.mysql.jdbc.Driver").newInstance();
@@ -63,8 +63,8 @@
                 response.getWriter().print(datetime + " is not available. Please choose another date/time.");
                 
             }
-            else if(weekday == 6 || ((weekday > 0 && weekday < 5) && (hour == 5 || (hour == 6 && min == 0))) 
-                        || (weekday == 0 && hour < 6) || (weekday == 5 && ((hour == 2 && min == 30) || hour >= 2))){
+            else if(weekday == 6 || ((weekday > 0 && weekday < 5) && (hour == 17 || (hour == 18 && min == 0))) 
+                        || (weekday == 0 && hour < 18) || (weekday == 5 && ((hour == 14 && min == 30) || hour > 14))){
                 response.getWriter().print(datetime + " is not during working hours.\nPlease select a proper time.");
             }
             else if (date.before(today)){

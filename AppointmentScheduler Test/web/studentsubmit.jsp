@@ -43,13 +43,13 @@
          try{
            Class.forName("com.mysql.jdbc.Driver").newInstance();
            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/wcdatabase", "root", "root");
-           PreparedStatement stmt=con.prepareStatement("SELECT * FROM appointment WHERE studentid = ?");
+           PreparedStatement stmt=con.prepareStatement("SELECT * FROM student WHERE studentid = ?");
            stmt.setString(1, studentid);
            ResultSet rs=stmt.executeQuery();
            if(rs==null){
                 Statement st=con.createStatement();
                 int i=st.executeUpdate("INSERT INTO student(studentid,lastname,firstname,email) VALUES('"+studentid+"','"+lastname+"','"+firstname+"','"+email+"')");
-                System.out.println("Data is successfully inserted!");
+                System.out.println("Student Data is successfully inserted!");
            }
         }
         catch(Exception e){
