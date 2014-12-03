@@ -20,7 +20,13 @@
 <%@page import="java.sql.Connection"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.Date,java.util.Calendar"%>
-
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+       
+        </head>
+     
 
     <%
            String datetime = request.getParameter("datetime");
@@ -32,10 +38,10 @@
            int hour = Integer.parseInt(time[0]);
            int min = Integer.parseInt(time[1]);
            SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
-           Date date = format1.parse(datestring);
+           java.util.Date date = format1.parse(datestring);
            int weekday = date.getDay();
             
-            Date today = new Date();
+            java.util.Date today = new java.util.Date();
            /* System.out.println(date.before(today)); //2014/08/06 15:59:48*/
             
             
@@ -90,3 +96,4 @@
                    
                    
         %>
+</html>

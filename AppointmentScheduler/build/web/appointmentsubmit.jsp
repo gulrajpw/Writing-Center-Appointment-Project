@@ -115,16 +115,14 @@
             mail.CreateSession();
             mail.ComposeEmail();
             mail.SendEmail();
-         OutlookAppointmentRequest object = new OutlookAppointmentRequest(name, datetime, email);
-         object.CreateSession();
-         object.OutlookAPTrequest();
+            OutlookAppointmentRequest object = new OutlookAppointmentRequest(name, datetime, email);
+            object.CreateSession();
+            object.OutlookAPTrequest();
             
                    
                    
         %>
             
-        
-        
         
         
     
